@@ -13,9 +13,9 @@ This Terraform setup will:
 - Create an ssh_config file in the terraform module directory for connecting to the VMs
 
 ### Optional adding nodes per role
-- Start `count_agent_etcd_nodes` amount of droplets and add them to the custom cluster with etcd role
-- Start `count_agent_controlplane_nodes` amount of droplets and add them to the custom cluster with controlplane role
-- Start `count_agent_worker_nodes` amount of droplets and add them to the custom cluster with worker role
+- Start `count_agent_etcd_nodes` amount of VMs and add them to the custom cluster with etcd role
+- Start `count_agent_controlplane_nodes` amount of VMs and add them to the custom cluster with controlplane role
+- Start `count_agent_worker_nodes` amount of VMs and add them to the custom cluster with worker role
 
 ## Other options
 
@@ -25,7 +25,7 @@ All available options/variables are described in [terraform.tfvars.example](http
 
 **Note: set the appropriate users for the images in the terraform variables, default is `root`**
 
-You can use the use the auto-generated ssh_config file to connect to the droplets by droplet name, e.g. `ssh <prefix>-rancheragent-0-all` or `ssh <prefix>-rancherserver` etc. To do so, you have two options:
+You can use the use the auto-generated ssh_config file to connect to the VMs by VM name, e.g. `ssh <prefix>-rancheragent-0-all` or `ssh <prefix>-rancherserver` etc. To do so, you have two options:
 
 1. Add an `Include` directive at the top of the SSH config file in your home directory (`~/.ssh/config`) to include the ssh_config file at the location you have checked out the this repository, e.g. `Include ~/git/tf-vsphere-rancher2/ssh_config`.
 
