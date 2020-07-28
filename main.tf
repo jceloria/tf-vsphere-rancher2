@@ -240,6 +240,7 @@ resource "local_file" "ssh_config" {
     rancheragent-worker       = [for node in vsphere_virtual_machine.rancheragent-worker : node.default_ip_address],
   })
   filename = "${path.module}/ssh_config"
+  file_permission = "0644"
 }
 
 output "rancher-url" {
